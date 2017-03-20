@@ -1,0 +1,67 @@
+<section>
+    <h3>CRUD Operations</h3>
+    <form action="/insert" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div>
+            <label for="mid">M-ID:</label>
+            <input type="text" id="mid" name="mid">
+        </div>
+        <div>
+            <label for="track">Track:</label>
+            <input type="text" id="track" name="track">
+        </div>
+        <button type="submit">submit</button>
+    </form>
+</section>
+<section>
+    
+    <a href="/get-data">GET DATA</a>
+    <div>
+        {{# each items }}
+            <article class="item">
+                <div>Name : {{ this.name }}</div>
+                <div>M-ID: {{ this.mid }}</div>
+                <div>Track: {{ this.track }}</div>
+                <form action="/delete" method="post">
+                <div><input type="text" name="id" id="id" value="{{ this._id }}" disabled></div>
+                <div><button type="submit">Delete</button></div>
+                </form>
+            </article>
+        {{/each}}
+    </div>
+</section>
+<section class="delete">
+    <h3>Delete Data</h3>
+    <form action="/delete" method="post">
+        <div class="input">
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <button type="submit">DELETE</button>
+    </form>
+</section>
+<section class="update">
+    <h3>Update Data</h3>
+    <form action="/update" method="post">
+        <div class="input">
+            <label for="id">ID</label>
+            <input type="text" id="id" name="id">
+        </div>
+        <div class="input">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name">
+        </div>
+        <div class="input">
+            <label for="mid">M-ID</label>
+            <input type="text" id="mid" name="mid">
+        </div>
+        <div class="input">
+            <label for="track">Track</label>
+            <input type="text" id="track" name="track">
+        </div>
+        <button type="submit">UPDATE</button>
+    </form>
+</section>
